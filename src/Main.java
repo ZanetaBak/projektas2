@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.sql.SQLOutput;
 
 public class Main {
@@ -26,7 +28,7 @@ public class Main {
 
         System.out.println("--------- 1 uzduotis-----------");
 
-        // Pirma uzduotis
+        // ==========Pirma uzduotis=========================
 
         String myFirstName = "Zaneta";
         String mySecondName = "Bakanauskiene";
@@ -35,7 +37,7 @@ public class Main {
         int age = (currentYear - birthYear);
         System.out.println("Aš esu " + myFirstName + " " + mySecondName + ". Man yra " + age + " metai (-ų).");
         System.out.println("--------- 2 uzduotis-----------");
-        // Antra uzduotis
+        // ===========Antra uzduotis==================================
 
         //Sukurkite du kintamuosius ir naudodamiesi funkcija Math.random()
         // jiems priskirkite atsitiktines reikšmes nuo 0 iki 4. Didesnę reikšmę padalinkite iš mažesnės.
@@ -52,9 +54,9 @@ public class Main {
 
         if (rndomeX > 0 && rndomeY != 0) {
             if (rndomeX > rndomeY) {
-                System.out.println("Padalinus gaunam " + Math.round(rndomeY / rndomeX * 100) / 100.0);
+                System.out.println("Padalinus gaunam " + (Math.round(rndomeX / rndomeY * 100) / 100.0));
             } else {
-                System.out.println("Padalinus gaunam " + Math.round(rndomeX / rndomeY * 100) / 100.0);
+                System.out.println("Padalinus gaunam " + (Math.round(rndomeY / rndomeX * 100) / 100.0));
             }
         } else {
             System.out.println("Dalyba is nulio negalima");
@@ -62,19 +64,19 @@ public class Main {
 
 
         System.out.println("--------- 3 uzduotis-----------");
-        // Trecia uzduotis
+        // ==========Trecia uzduotis=====================================================
 
         // Naudokite funkcija Math.random(). Sukurkite tris kintamuosius ir
         // naudodamiesi funkcija Math.random() jiems priskirkite atsitiktines reikšmes nuo 0 iki 25.
         // Raskite ir atspausdinkite kintąmąjį turintį vidurinę reikšmę.
 
 
-        int e = 0;
-        int f = 25;
+        int a3 = 0;
+        int b3 = 25;
         int varOne, varTwo, varThree;
-        varOne = e + (int) Math.round(Math.random() * (f - e));
-        varTwo = e + (int) Math.round(Math.random() * (f - e));
-        varThree = e + (int) Math.round(Math.random() * (f - e));
+        varOne = a3 + (int) Math.round(Math.random() * (b3 - a3 + 1));// '+ 1' del cutting int, kad generuotu 25
+        varTwo = a3 + (int) Math.round(Math.random() * (b3 - a3 + 1));
+        varThree = a3 + (int) Math.round(Math.random() * (b3 - a3 + 1));
 
         System.out.println("varOne yra " + varOne + ",  varTwo yra  " + varTwo + " ,o varThree yra " + varThree);
 
@@ -95,103 +97,156 @@ public class Main {
         // a, b ir c krastiniu ilgiai (naudoti Int). naudoti Math.random (nuo 1 iki 10). Programa turi nustatyti
         // ar galima sudaryti trikampi ir atsakyma atspausdinti.
 
-        // ZB: krastiniu ilgiai tik teigiami skaiciai ir dvieju krastiniu suma turi buti didesne
-        // nei trecios krastines ilgis. Atsakymas - taip, trikampi sudaryti galima arba - ne
+        // ZB: dvieju krastiniu suma turi buti didesne nei trecios krastines ilgis.
 
         int trOne, trTwo, trThree;
         int aa = 1;
         int ab = 10;
         // kintamuju generavimas
-        trOne = aa + (int) Math.round(Math.random() * (ab - aa));
-        trTwo = aa + (int) Math.round(Math.random() * (ab - aa));
-        trThree = aa + (int) Math.round(Math.random() * (ab - aa));
+        trOne = aa + (int) Math.round(Math.random() * (ab - aa + 1));
+        trTwo = aa + (int) Math.round(Math.random() * (ab - aa + 1));
+        trThree = aa + (int) Math.round(Math.random() * (ab - aa + 1));
 
         System.out.println("trOne = " + trOne + ", trTwo = " + trTwo + ", trThree = " + trThree);
 
-        boolean trikampisGeras = true;
-
-        // tikrinam ar krastines ilgis yra teigiamas skaicius - ar reikia tikrinti jeigu skaiciai nuo 0 iki 10?
-
-        if (trOne <= 0 || trTwo <= 0 || trThree <= 0) {
-            trikampisGeras = false;
-
-            System.out.println("The triangle is not valid");
-        }
         // tikrinam ar dvieju krastiniu suma didesne nei trecios
 
-        else if ((trOne + trTwo) <= trThree || (trOne + trThree) <= trTwo || (trTwo + trThree) <= trOne) {
-            trikampisGeras = false;
+        if ((trOne + trTwo) <= trThree || (trOne + trThree) <= trTwo || (trTwo + trThree) <= trOne) {
             System.out.println("The triangle is not valid");
         } else {
             System.out.println("The triangle is valid");
         }
+        // destytojas nerekomenduoja if funkcijos uzrasyti tokia ilga salyga, geriau skaidyti i atskirus if
+
         System.out.println("--------- 5 uzduotis-----------");
 
         // Penkta uzduotis
 
         // sukurti 4 kintamuosius su Math.random () su reiksmemis nuo 0 iki 2.
-        // Suskaiciuoti kiek yra nuliu, vienetu ir dvejetu
-
+        // Suskaiciuoti kiek yra nuliu, vienetu ir dvejetu.
 
         int var1, var2, var3, var4;
-        int aaa = 0;
-        int aab = 2;
-
         // kintamuju generavimas
-        var1 = aaa + (int) Math.round(Math.random() * (aab - aaa));
-        var2 = aaa + (int) Math.round(Math.random() * (aab - aaa));
-        var3 = aaa + (int) Math.round(Math.random() * (aab - aaa));
-        var4 = aaa + (int) Math.round(Math.random() * (aab - aaa));
 
-        System.out.println("var1 = " + var1 + ", var2 = " + var2 + ", var3 = " + var3 + ", var4 = " + var4);
+        var1 = (int) (Math.random() * 3);
+        var2 = (int) (Math.random() * 3);
+        var3 = (int) (Math.random() * 3);
+        var4 = (int) (Math.random() * 3);
+
+        System.out.println("var1 = " + var1 + ", var2 = " + var2 + ", var3 = " + var3 + " + var4 = " + var4);
+
+        // skaiciuojam nulius, vienetus ir dvejetus
+        int zeros = 0;
+        int ones = 0;
+        int twos = 0;
+
+        if (var1 == 0) {
+            zeros++;
+        }
+        if (var2 == 0) {
+            zeros++;
+        }
+        if (var3 == 0) {
+            zeros++;
+        }
+        if (var4 == 0) {
+            zeros++;
+        }
+
+        System.out.println("variables equal to zeros: " + zeros);
+
+        if (var1 == 1) {
+            ones++;
+        }
+        if (var2 == 1) {
+            ones++;
+        }
+        if (var3 == 1) {
+            ones++;
+        }
+        if (var4 == 1) {
+            ones++;
+        }
+        System.out.println("variables equal to ones: " + ones);
 
 
-        // int count0, count1, count2;
-        //count0 = 0;
+        if (var1 == 2) {
+            twos++;
+        }
+        if (var2 == 2) {
+            twos++;
+        }
+        if (var3 == 2) {
+            twos++;
+        }
+        if (var4 == 2) {
+            twos++;
+        }
+        System.out.println("variables equal to twos: " + twos);
 
-        // for (count0 = 0; var1 = 0 || var2 = 0 || var3 = 0 || var4 = 0; count0++) {
+        System.out.println("--------- 6 uzduotis-----------");
 
-        // System.out.println("Nulių = " + count0);
+
+        // Sesta uzduotis
+
+        // atspausdinti 3 skaicius nuo -10 iki 10. Skaiciai mazesni uz 0 turi buti [] skliaustuose, nulis - (),
+        // o didesni uz 0 {}.
+
+
+        int a6 = -10;
+        int b6 = 10;
+
+        // generuojam tris kintamuosius
+
+        int x6 = a6 + (int) Math.round(Math.random() * ((b6 - a6) + 1));
+        int y6 = a6 + (int) Math.round(Math.random() * ((b6 - a6) + 1));
+        int z6 = a6 + (int) Math.round(Math.random() * ((b6 - a6) + 1));
+
+
+        System.out.println("x6 = " + x6 + ", y6 = " + y6 + ", z6 = " + z6);
+
+
+        // tikrinam ar skaicius <0, >0 ar =0 ir spausdinam tinkamuose skliaustuose
+
+        if (x6 < 0) {
+            System.out.println("[ " + x6 + " ]");
+        }
+        if (x6 == 0) {
+            System.out.println("( " + x6 + " )");
+        }
+        if (x6 > 0) {
+            System.out.println("{ " + x6 + " }");
+        }
+        if (y6 < 0) {
+            System.out.println("[ " + y6 + " ]");
+        }
+        if (y6 == 0) {
+            System.out.println("( " + y6 + " )");
+        }
+        if (y6 > 0) {
+            System.out.println("{ " + y6 + " }");
+        }
+        if (z6 < 0) {
+            System.out.println("[ " + z6 + " ]");
+        }
+        if (z6 == 0) {
+            System.out.println("( " + z6 + " )");
+        }
+        if (z6 > 0) {
+            System.out.println("{ " + z6 + " }");
+        }
+
+
+        System.out.println("--------- 7 uzduotis-----------");
+        // Septinta uzduotis
+
+
+        // git config --global user.email "zzanule@gmail.com"
+        // git config --global user.name "ZanetaB"
+
+
     }
-    // nezinau kaip suskaiciuoti :(
-
-
-    // Sesta uzduotis
-
-    // atspausdinti 3 skaicius nuo -10 iki 10. Skaiciai mazesni uz 0 turi buti [] skliaustuose, nulis - (),
-    // o didesni uz 0 {}.
-
-
-    int a6 = -10;
-    int b6 = 10;
-
-    int x6 = a6 + (int) Math.round(Math.random() * ((b6 - a6) + 1));
-    int y6 = a6 + (int) Math.round(Math.random() * ((b6 - a6) + 1));
-    int z6 = a6 + (int) Math.round(Math.random() * ((b6 - a6) + 1));
-
-    // nezinau ka toliau daryti
-    //  if (x6 < 0 || y6 < 0 || z6 < 0) {
-
-    //  System.out.println("[ " + x6 + y6 + z6 + " ]");
-    //}
-    //    else if (x6 = 0 || y6 = 0 || z6 = 0) {
-    //{
-    //System.out.println("(" + x6 + y6 + z6")");
-    //}
-    // else{
-    //   System.out.println("{" + x6 + y6 + z6"}");
-    //}
-
-    // nebaigtas
-
-
-    // Septinta uzduotis
-
-    git config --global user.email "zzanule@gmail.com"
-    git config --global user.name "ZanetaB"
-
 }
-//}
 
 
 
